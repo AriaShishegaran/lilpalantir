@@ -1,4 +1,5 @@
-# Project Name
-desc
+# LilPalantir
+A centrized private knowledge store.
 
 ## Getting Started
+TO DO
