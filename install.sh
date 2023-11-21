@@ -73,7 +73,7 @@ check_success "Failed to clear pip cache."
 
 # Install required Python packages
 echo "Installing required Python packages..."
-pip install python-dotenv llama_index
+pip install python-dotenv llama_index numpy pandas requests beautifulsoup4 lxml scikit-learn nltk gensim spacy Pillow pyPDF2 python-docx openpyxl EbookLib
 check_success "Failed to install required Python packages."
 
 # Setup .env file
