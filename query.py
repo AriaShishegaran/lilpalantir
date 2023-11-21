@@ -1,12 +1,18 @@
 import os
 import sys
+from dotenv import load_dotenv
 from llama_index import (
     StorageContext, load_index_from_storage, ServiceContext
 )
 from llama_index.llms import OpenAI
 
-# Set your OpenAI API key here
-OPENAI_API_KEY = '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'
+# Load environment variables from .env file
+load_dotenv()
+
+# Use the API key from the .env file
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+if not OPENAI_API_KEY:
+    raise Exception("OpenAI API key not found. Please set it in the .env file.")
 
 def query_index(query):
     # Set the API key in the environment
