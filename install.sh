@@ -1,9 +1,18 @@
 #!/bin/bash
 
+# Function to check last command's success
+check_success() {
+    if [ $? -ne 0 ]; then
+        echo "Error: $1"
+        exit 1
+    fi
+}
+
 # Function to install Homebrew on macOS
 install_homebrew() {
     echo "Installing Homebrew, a package manager for macOS..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    check_success "Homebrew installation failed."
 }
 
 # Function to install Python
@@ -13,17 +22,25 @@ install_python() {
         brew install python3
     elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
         sudo apt-get update
-        sudo apt-get install python3
+        check_success "Failed to update package list."
+        sudo apt-get install -y python3
     fi
+    check_success "Python installation failed."
 }
 
 # Function to install pip
 install_pip() {
     echo "pip is not installed. Installing pip..."
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    check_success "Failed to download get-pip.py."
     python3 get-pip.py
+    check_success "pip installation failed."
     rm get-pip.py
 }
+
+# Check internet connectivity
+ping -c 1 8.8.8.8 > /dev/null 2>&1
+check_success "Internet connection failed. Please ensure you are connected to the internet."
 
 # Check for Homebrew on macOS and install if not present
 if [[ "$OSTYPE" == "darwin"* ]] && ! command -v brew &> /dev/null; then
@@ -44,25 +61,20 @@ else
     echo "pip is already installed."
 fi
 
-# Create a virtual environment
-# echo "Creating a virtual environment..."
-# python3 -m venv venv
-# source venv/bin/activate
-
 # Update pip to the latest version
 echo "Updating pip to the latest version..."
-pip install --upgrade pip
+python3 -m pip install --upgrade pip
+check_success "Failed to upgrade pip."
 
 # Clear pip cache
 echo "Clearing pip cache..."
 pip cache purge
+check_success "Failed to clear pip cache."
 
 # Install required Python packages
 echo "Installing required Python packages..."
 pip install python-dotenv llama_index
-
-# Additional dependencies (if any) based on your Python code
-# Example: pip install numpy pandas
+check_success "Failed to install required Python packages."
 
 # Setup .env file
 echo "Setting up the .env file..."
