@@ -1,0 +1,23 @@
+# Ignore Mac system files
+.DS_Store
+
+# Ignore local library folders
+book/
+llamaindex/
+nlp-textbook/
+storage/
+
+# Ignore all text files
+*.txt
+
+# Ignore files related to API keys
+.env
+
+# Ignore SASS config files
+.sass-cache
+
+# Ignore all .log files in the logs directory
+logs/*.log
+
+# Ignore all .tmp files
+*.tmp

@@ -6,7 +6,7 @@ from llama_index import (
 from llama_index.llms import OpenAI
 
 # Set your OpenAI API key here
-OPENAI_API_KEY = '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'
+OPENAI_API_KEY = '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'
 
 def query_index(query):
     # Set the API key in the environment
