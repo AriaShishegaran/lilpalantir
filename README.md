@@ -1,7 +1,9 @@
 
-# LilPalantir Installation Guide
+# LilPalantir
+A simple command-line tool to empower fast querying of local knowledge on your machine via CLI, built on top of the LlamaIndex.
 
-This guide provides comprehensive instructions for installing and configuring LilPalantir, a command-line tool for querying local knowledge.
+## Documentation
+LilPalantir is designed to facilitate quick and efficient access to a vast array of local knowledge. It leverages advanced AI models like GPT-3.5-Turbo and GPT-4-Turbo to interpret and respond to natural language queries, providing insights and information stored locally on your machine.
 
 ## Pre-installation Requirements
 
@@ -63,4 +65,3 @@ Each installed package serves a specific role in the functionality of LilPalanti
 ---
 
 Remember to keep your installation updated and check the [official documentation](https://github.com/LilPalantir) for the latest updates and features.
-
