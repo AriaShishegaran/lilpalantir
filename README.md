@@ -64,7 +64,3 @@ Each installed package serves a specific role in the functionality of LilPalanti
 - `python-dotenv`: Manage environment variables.
 - `llama_index`: Core dependency for querying.
 - Other packages like `numpy`, `pandas`, `requests`, etc., provide various utilities for data handling and web interactions.
-
----
-
-Remember to keep your installation updated and check the [official documentation](https://github.com/LilPalantir) for the latest updates and features.
