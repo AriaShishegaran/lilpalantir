@@ -1,18 +1,37 @@
+
 # LilPalantir
-A simple commandline tool to empower fast query of local knowledge on your machine via CLI built on top of the LlamaIndex.
-# Getting Started
-You can leverage the install.sh (MacOS, Linux) and install.bat (Windows) to run a full install of all the requirements for the script to work out of the box.
-Remember you need to give the script execution rights by running the chmod +x install.sh on Linux and MacOs machine.
-## Consuming the local knowledge
-For feeding infromation to LilPalantir you always need to provide a folder in which you're data resides in. Then you need to call the loader.py 
-Example:
-loader.py /Desktop/knowledge-base/
+A simple command-line tool to empower fast querying of local knowledge on your machine via CLI, built on top of the LlamaIndex.
 
-The script runs to unpack and ingest all the supported file types within the folder and it might take a while based on the volume of data you feed it.
-It will provide you with feedback when the ingestion is finished.
+## Getting Started
+To get started, you can leverage the `install.sh` script for MacOS and Linux, or `install.bat` for Windows, to run a full install of all the requirements for the script to work out of the box. Remember to give the script execution rights by running `chmod +x install.sh` on Linux and MacOS machines.
 
+### Installation
+```bash
+# For MacOS and Linux
+chmod +x install.sh
+./install.sh
 
-Then you can use the query.py to speak with your local knowledge base in human language using models like GPT-3.5-Turbo or GPT-4-Turbo.
+# For Windows
+install.bat
+```
 
-Example:
+## Consuming the Local Knowledge
+To feed information to LilPalantir, you need to provide a folder where your data resides. Use the `loader.py` script to process this data.
+
+### Loading Data
+```bash
+loader.py /path/to/your/data/folder
+```
+The script will unpack and ingest all supported file types within the folder. The duration of this process depends on the volume of data. You will receive feedback when the ingestion is complete.
+
+## Querying the Knowledge Base
+Once the data is ingested, you can query your local knowledge base using natural language with models like GPT-3.5-Turbo or GPT-4-Turbo. Use the `query.py` script for this purpose.
+
+### Making Queries
+```bash
+query.py "your query here"
+```
+For example:
+```bash
 query.py "give a detailed explanation of what are the applications of LSTM?"
+```
